@@ -73,7 +73,7 @@ export default class CustomModal extends Component {
                             name="description"
                             value={activeItem.description}
                             onChange={this.handleChange}
-                            placeholder="Enter description"
+                            placeholder="Enter Description"
                             />
                         </FormGroup></>;
 		if(activeItem.type === "project") {

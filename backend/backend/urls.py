@@ -18,7 +18,8 @@ from django.urls import path,include
 from rest_framework import routers                  
 from myprojects import views as myprojects_views              
 from myprofexps import views as myprofexps_views              
-from myclimbingexps import views as myclimbingexps_views                                       
+from myclimbingexps import views as myclimbingexps_views      
+from usermanagement import views as usermanagement_views                                        
 
 router = routers.DefaultRouter()
 router.register(r'myprojects', myprojects_views.ProjectView, 'project')  
@@ -28,5 +29,6 @@ router.register(r'myclimbingexps', myclimbingexps_views.ClimbingExpView, 'climbi
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/', include(router.urls))              
+    path('api/', include(router.urls)),
+	path('api/', include('usermanagement.urls')),	
 ]

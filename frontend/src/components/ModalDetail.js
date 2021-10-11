@@ -37,7 +37,10 @@ export default class CustomModal extends Component {
 							  className={`item-title mr-2 `}
 							  title={activeItem.title}
 							>
-							{activeItem.title ? 'Title : ' + activeItem.title : ''}
+							{activeItem.title 
+								? 'Title : ' + activeItem.title 
+								: ''
+							}
 							</span>
 							</Container></>;
 		}
@@ -49,7 +52,10 @@ export default class CustomModal extends Component {
 							  className={`item-place mr-2 `}
 							  title={activeItem.place}
 							>
-							{activeItem.place ? 'Place : ' + activeItem.place : ''}
+							{activeItem.place 
+								? 'Place : ' + activeItem.place 
+								: ''
+							}
 							</span>
 							</Container></>;
 		}
@@ -60,7 +66,10 @@ export default class CustomModal extends Component {
 							  className={`item-description mr-2 `}
 							  title={activeItem.description}
 							>
-							{activeItem.description ? 'Description : ' + activeItem.description : ''}
+							{activeItem.description 
+								? 'Description : ' + activeItem.description 
+								: ''
+							}
 							</span>	
 							</Container></>;
 		}
@@ -71,7 +80,10 @@ export default class CustomModal extends Component {
 							  className={`item-link mr-2 `}
 							  title={activeItem.link}
 							>
-							  {activeItem.link ? 'Link : ' + activeItem.link : ''}
+							  {activeItem.link 
+								  ? 'Link : ' + activeItem.link 
+								  : ''
+							  }
 							</span>
 							</Container></>;
 		}
@@ -82,7 +94,10 @@ export default class CustomModal extends Component {
 							  className={`item-title mr-2 `}
 							  title={activeItem.picture}
 							>
-							{activeItem.picture ? 'Picture : ' + activeItem.picture : ''}
+							{activeItem.picture 
+								? 'Picture : ' + activeItem.picture 
+								: ''
+							}
 							</span>
 							</Container></>;
 		}

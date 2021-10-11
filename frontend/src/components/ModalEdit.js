@@ -31,9 +31,13 @@ export default class CustomModal extends Component {
     render() {
         const { toggle, onSave, toggleModalEdit } = this.props;
 		const activeItem = this.state.activeItem;
-		let formsList = "";
-		if(activeItem.title) {
-			formsList = <>{formsList}<FormGroup>
+		
+        return (
+            <Modal isOpen={true} toggle={toggle}>
+                <ModalHeader toggle={toggle}>Item</ModalHeader>
+                <ModalBody>
+                    <Form>
+						<FormGroup>
                             <Label for="title">Title</Label>
                             <Input 
                               type="text"
@@ -42,22 +46,20 @@ export default class CustomModal extends Component {
                               onChange={this.handleChange}
                               placeholder="Enter Title"
                             />
-                        </FormGroup></>;
-		}
-		if(activeItem.place) {
-			formsList = <>{formsList}<FormGroup>
-                            <Label for="place">Place</Label>
-                            <Input 
-                              type="text"
-                              name="place"
-                              value={activeItem.place}
-                              onChange={this.handleChange}
-                              placeholder="Enter Place"
-                            />
-                        </FormGroup></>;
-		}
-		if(activeItem.description) {
-			formsList = <>{formsList}<FormGroup>
+                        </FormGroup>
+						{(activeItem.type === "profexp" || activeItem.type === "climbingexp") &&
+							<FormGroup>
+								<Label for="place">Place</Label>
+								<Input 
+								  type="text"
+								  name="place"
+								  value={activeItem.place}
+								  onChange={this.handleChange}
+								  placeholder="Enter Place"
+								/>
+							</FormGroup>
+						} 
+						<FormGroup>
                             <Label for="description">Description</Label>
                             <Input
                             type="text"
@@ -66,39 +68,31 @@ export default class CustomModal extends Component {
                             onChange={this.handleChange}
                             placeholder="Enter description"
                             />
-                        </FormGroup></>;
-		}
-		if(activeItem.link) {
-			formsList = <>{formsList}<FormGroup>
-                            <Label for="link">Link</Label>
-                            <Input 
-                              type="text"
-                              name="link"
-                              value={activeItem.link}
-                              onChange={this.handleChange}
-                              placeholder="Enter Link"
-                            />
-                        </FormGroup></>;
-		}
-		if(activeItem.picture) {
-			formsList = <>{formsList}<FormGroup>
-                            <Label for="picture">Picture</Label>
-                            <Input 
-                              type="text"
-                              name="picture"
-                              value={activeItem.picture}
-                              onChange={this.handleChange}
-                              placeholder="Enter Picture"
-                            />
-                        </FormGroup></>;
-		}
-		
-        return (
-            <Modal isOpen={true} toggle={toggle}>
-                <ModalHeader toggle={toggle}>Item</ModalHeader>
-                <ModalBody>
-                    <Form>
-						{formsList}
+                        </FormGroup>
+						{activeItem.type === "project" &&
+							<FormGroup>
+								<Label for="link">Link</Label>
+								<Input 
+								  type="text"
+								  name="link"
+								  value={activeItem.link}
+								  onChange={this.handleChange}
+								  placeholder="Enter Link"
+								/>
+							</FormGroup>
+						}
+						{activeItem.type === "climbingexp" &&
+							<FormGroup>
+								<Label for="picture">Picture</Label>
+								<Input 
+								  type="text"
+								  name="picture"
+								  value={activeItem.picture}
+								  onChange={this.handleChange}
+								  placeholder="Enter Picture"
+								/>
+							</FormGroup>
+						}
                     </Form>
                 </ModalBody>
                 <ModalFooter>
